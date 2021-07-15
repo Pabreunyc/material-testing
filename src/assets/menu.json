@@ -1,0 +1,26 @@
+[
+    {
+      "menu":"Home",
+      "perm":"",
+      "href":"",
+      "active":1
+    },
+    {
+      "menu":"Main",
+      "perm":"Admin",
+      "href":"main",
+      "active":1
+    },
+    {
+      "menu":"Stepper",
+      "perm":"Admin",
+      "href":"stepper",
+      "active":1
+    },
+    {
+      "menu":"Dropdown/Select",
+      "perm":"Admin",
+      "href":"select",
+      "active":1
+    }
+]

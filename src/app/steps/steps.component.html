@@ -1,0 +1,14 @@
+<section class='parent'>
+
+    <div class='content' contenteditable="">
+        Some Content
+    </div>
+
+    <div class=''>
+        <mat-form-field floatLabel="'always'" class='full-width'>
+            <mat-select (selectionChange)="onSelectionChange($event)">
+                <mat-option *ngFor="let d of data" [value]="d.value">{{d.label}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</section>

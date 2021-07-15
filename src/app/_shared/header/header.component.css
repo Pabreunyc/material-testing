@@ -1,0 +1,14 @@
+#navbar a {
+    font-size: smaller;
+    padding: .25em .5em;
+    text-decoration: none;
+    cursor: default;
+}
+#navbar a.active {
+    color: yellow;    
+    cursor: pointer;
+}
+#navbar a.active:hover {
+    /* text-decoration: underline 2px; */
+    background-color: rgba(255,255,255,0.5);
+}

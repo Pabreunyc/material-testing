@@ -6,24 +6,32 @@ import {
   MatButtonModule, 
   MatIconModule, 
   MatListModule, 
+  MatPaginatorModule,
+  MatSelectModule,
   MatSidenavModule, 
   MatSliderModule, 
-  MatToolbarModule
+  MatStepperModule, 
+  MatTableModule, 
+  MatTabsModule, 
+  MatToolbarModule,
 } from '@angular/material';
-
 
 @NgModule({
   declarations: [],
   exports: [
     CommonModule,
     MatSliderModule,
-    LayoutModule,
-    MatToolbarModule,
+    LayoutModule,    
     MatButtonModule,
-    MatSidenavModule,
     MatIconModule,
     MatListModule,
-
+    MatPaginatorModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatStepperModule,    
+    MatTabsModule,
+    MatTableModule,
+    MatToolbarModule,    
   ]
 })
 export class MaterialModule { }

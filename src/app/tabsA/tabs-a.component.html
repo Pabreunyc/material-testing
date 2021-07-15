@@ -1,0 +1,16 @@
+<nav mat-tab-nav-bar>
+    <a mat-tab-link
+       routerLink="/tab1"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      Tab #1
+    </a>
+    <a mat-tab-link
+       routerLink="/tab2"
+       routerLinkActive #rla="routerLinkActive"
+       [active]="rla.isActive">
+      Tab #2
+    </a>
+</nav>
+  
+<router-outlet></router-outlet>

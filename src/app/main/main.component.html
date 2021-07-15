@@ -1,0 +1,33 @@
+<section id="container">
+    <div id="searchPanel">
+        <table mat-table [dataSource]="users">
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.name.full}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="city">
+                <mat-header-cell *matHeaderCellDef>City</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.location.city}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef>E-Mail</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.email}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="dob">
+                <mat-header-cell *matHeaderCellDef>D.O.B.</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.dob.date | date}}</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </table>
+        <mat-paginator #searchResultsPaginator pageSize="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+    <div id="xferPanel">
+        <p>Transfers Panel</p>
+    </div>
+</section>

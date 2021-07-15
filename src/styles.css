@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.border-red { border:1px solid red !important; }
+.border-blue { border:1px solid blue !important; }
+.border-black { border:1px solid black !important; }
+.border-yellow { border:1px solid yellow !important; }
+
+:root {
+    --nyp-green: #88c659;
+    --nyp-gray: #58595b;
+    --nyp-black: #000000;
+    --nyp-white: #ffffff;
+    --nyp-gold: #f0ab00;
+    --nyp-forestgreen: #407056;
+    --nyp-blue: #0088ce;
+    --nyp-orange: #ff5800;
+    --nyp-pink: #d74487;
+    --nyp-ceruleanblue: #009cda;
+}

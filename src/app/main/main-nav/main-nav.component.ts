@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { map, shareReplay, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main-nav',
@@ -9,25 +9,27 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-
+  public opened = true;
+  
   scrWidth: Number = 0;
   scrHeight: Number = 0;
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
     const { innerWidth, innerHeight } = window;
-    console.log(`${innerWidth} x ${innerHeight}`);
-    console.log(event);
+    //console.log(`${innerWidth} x ${innerHeight}`);
+    //console.log(event);
     this.scrWidth = innerWidth; this.scrHeight = innerHeight;
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
+      tap(console.log),
       shareReplay()
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {
-    console.log(`Breakpoints: ${Breakpoints}`);
+    console.log("Breakpoints:", Breakpoints);
   }
 
 }
