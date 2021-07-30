@@ -1,0 +1,92 @@
+<form [formGroup]="ticketFG" (ngSubmit)='onSubmit($event)'>
+<input #actionRef type='hidden' formControlName="fc_action" value="'submit'">
+<section>
+    <div>
+        <ol>
+            <li>{{actionRef.value}}</li>
+            <li>{{ticketFG.get('fc_action').value}}</li>
+            <li>{{XXX}}</li>
+        </ol>
+        <button type='button' (click)="setXXX() && onSubmit($event)">
+            A Button
+        </button>
+
+        <button mat-raised-button>Raised Basic</button><button mat-stroked-button color="primary">Stroked Primary</button>
+
+        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+            <mat-icon>home</mat-icon>Home
+        </button>        
+
+        <p><button mat-raised-button color="accent">
+            <mat-icon>mic</mat-icon>
+            Start Recording
+        </button></p>
+
+        <p><a _ngcontent-c1="" aria-label="Angular Material" class="docs-button mat-button mat-stroked-button" mat-button="" routerlink="/" tabindex="0" aria-disabled="false" href="/">
+            <span class="mat-button-wrapper">
+                <mat-icon>home</mat-icon>
+                <span _ngcontent-c1="">Material</span>
+            </span>
+           <div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div>
+        </a></p>
+    </div>
+    <mat-toolbar id='response-toolbar1' color="warn" id='response-toolbar'>
+        <div>
+            <button type='submit' name='submitted'
+                mat-icon-button class="example-icon" 
+                aria-label="Example icon-button with menu icon">
+                <mat-icon>email</mat-icon>
+            </button>
+            <button type='submit' name='closed'
+                mat-icon-button class="example-icon2"
+                aria-label="Example icon-button with menu icon">
+                <mat-icon>close</mat-icon>
+            </button>
+            <button type='button' mat-icon-button class="example-icon" 
+                aria-label="Example icon-button with menu icon">
+                <mat-icon style="transform: rotate(90deg);">attachment</mat-icon>
+            </button>
+            &nbsp;<span style="color:black">|</span>&nbsp;
+            <button type='button' mat-icon-button class="" aria-label="Example icon-button with heart icon"
+                (click)="onDiscard($event)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+
+        
+            <mat-form-field floatLabel="'never'" style="width:8em;">
+                <mat-select formControlName="fc_tbNewStatus">
+                    <mat-option [value]="0">----</mat-option>
+                    <mat-option *ngFor="let stat of ticketSelects.status" [value]="stat.id">{{stat.label}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field floatLabel="'never'" style="width:8em">
+                <mat-select formControlName="fc_tbAssignee">
+                    <mat-option [value]="0">----</mat-option>
+                    <mat-option *ngFor="let u of assignUserTo" [value]="u">{{u.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+    </mat-toolbar>
+
+    <mat-toolbar class='toolbar' id='response-toolbar2'>
+        <button mat-raised-button color="accent">
+            <mat-icon>email</mat-icon>
+            Send
+        </button>
+        <button mat-raised-button color="accent" 
+            #tooltip="matTooltip"
+            matTooltip="Save & Close Ticket"
+            aria-label="Button to save & close current Ticket">
+            <mat-icon>mic</mat-icon>Close
+        </button>
+        <button mat-stroked-button class="b1"
+            
+            matTooltip="Save & Close Ticket"
+            aria-label="Button to save & close current Ticket">
+            <mat-icon>close</mat-icon>Close
+        </button>
+        <a mat-flat-button color="accent" routerLink="/create"><mat-icon inline=true>add</mat-icon> Create</a>
+    </mat-toolbar>
+</section>
+</form>

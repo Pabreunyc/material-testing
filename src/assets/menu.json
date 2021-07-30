@@ -22,5 +22,11 @@
       "perm":"Admin",
       "href":"select",
       "active":1
+    },
+    {
+      "menu":"Menu Toolbar",
+      "perm":"Admin",
+      "href":"toolbar",
+      "active":1
     }
 ]

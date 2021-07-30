@@ -17,6 +17,7 @@ import { Tabs2Component } from './tabsA/tabs2/tabs2.component';
 import { StepsComponent } from './steps/steps.component';
 import { TransfersSearchComponent } from './main/transfers-search/transfers-search.component';
 import { TransfersComponent } from './main/transfers/transfers.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { TransfersComponent } from './main/transfers/transfers.component';
     StepsComponent,
     TransfersSearchComponent,
     TransfersComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,

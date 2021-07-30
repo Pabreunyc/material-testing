@@ -1,0 +1,12 @@
+section {
+    background-color:wheat;
+    margin:0 auto;
+    width:98%;
+}
+
+#response-toolbar2 > button {
+    margin-right: 4px;
+}
+.b1 {
+    background-color:violet !important;
+}

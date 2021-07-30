@@ -8,6 +8,10 @@
     color: yellow;    
     cursor: pointer;
 }
+#navbar a.is-active {
+    color: crimson;
+    cursor:nesw-resize;
+}
 #navbar a.active:hover {
     /* text-decoration: underline 2px; */
     background-color: rgba(255,255,255,0.5);

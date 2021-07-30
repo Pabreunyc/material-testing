@@ -9,11 +9,13 @@ import { PageNotFoundComponent } from '../_shared/page-not-found/page-not-found.
 import { StepsComponent } from '../steps/steps.component';
 import { Tabs1Component } from '../tabsA/tabs1/tabs1.component';
 import { Tabs2Component } from '../tabsA/tabs2/tabs2.component';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 const routes: Routes = [
   { path:'', component:TabsAComponent },
-  { path:'main', component:MainComponent },
+  { path:'main', component:MainComponent },  
   { path:'stepper', component:StepsComponent },
+  { path:'toolbar', component:ToolbarComponent },
   {
     path: 'tab1',
     component: Tabs1Component

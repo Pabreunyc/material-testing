@@ -8,6 +8,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .border-black { border:1px solid black !important; }
 .border-yellow { border:1px solid yellow !important; }
 
+.full-width {
+    width: 100% !important;
+}
+
 :root {
     --nyp-green: #88c659;
     --nyp-gray: #58595b;
