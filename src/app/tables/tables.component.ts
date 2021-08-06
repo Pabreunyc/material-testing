@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -12,11 +12,22 @@ import { UsersService } from '../_services/users.service';
 })
 export class TablesComponent implements OnInit, AfterViewInit {
 @ViewChild(MatSort, {static:true}) sort: MatSort;
+@ViewChild('searchRef', {static:false}) searchRefVC:ElementRef<HTMLInputElement>;
+
 public ds;
 public users:any[] = [];
 
-public displayColumns:string[] = ['name', 'username', 'email','city','dob'];
-
+public displayColumns:string[] = ['name', 'username', 'email','city','dob','status'];
+public tableFilters = {
+  status: {
+    values: ['new','current','retired'],
+    current: '',
+  },
+  gender: {
+    values: ['male','female'],
+    current: '',
+  }
+}
 
   constructor(
     private usersService:UsersService,
@@ -28,7 +39,8 @@ public displayColumns:string[] = ['name', 'username', 'email','city','dob'];
     this._init();    
   }
   ngAfterViewInit(): void {
-    console.log('this.ngAfterViewInit', this.sort);        
+    console.log('this.ngAfterViewInit', this.sort);
+    console.log('this.ngAfterViewInit', this.searchRefVC);
   }  
 // ============================================================================
   onSort(evt) {
@@ -51,21 +63,42 @@ public displayColumns:string[] = ['name', 'username', 'email','city','dob'];
   }
   af(evt) {
     let key = (evt.target.value || '').trim();
-    if(key.length < 3)
+    if(key.length < 2)
       return;
     key = key.toLowerCase();
     this.ds.filter = key;
   }
   clearFilter(evt) {
     this.ds.filter = '';
+    this.searchRefVC.nativeElement.value = '';
+  }
+
+  onSelectionChange(name, evt) {
+    let filter = (evt.value || '').trim().toLowerCase();    
+    if( filter && this.tableFilters.hasOwnProperty(name) ) {
+      this.tableFilters[name].current = evt.value;
+      console.table(this.tableFilters);
+      console.log(`key: "${this.searchRefVC.nativeElement.value}"`);
+
+      //this.ds.filter = this.searchRefVC.nativeElement.value;
+      this.ds.filter = 'e';
+    }
   }
 // ============================================================================
   private _init() {
 
     this.usersService.getUsers().subscribe(
       res => {
-        this.users = res;
+        let s = new Set();
+        res = (res as any).map(e => {
+          let v = this.tableFilters.status.values;
+          let status = v[this.getRandomInt(0, v.length)];
 
+          s.add(e.gender);
+          return { ...e, 'status':status };
+        });          
+        this.users = res;
+        console.log('gender', s);
         this.ds = new MatTableDataSource(this.users);
         this.ds.sortingDataAccessor = (item, property) => {
           switch(property) {
@@ -74,18 +107,39 @@ public displayColumns:string[] = ['name', 'username', 'email','city','dob'];
             default: { return item[property]; break; }
           }    
         };
+        this.ds.sort = this.sort;
+
         // https://stackoverflow.com/questions/48470046/angular-material-table-filterpredicate 
         this.ds.filterPredicate =(data, filter: string) => {
           let haystack = (data.name.first + data.name.last).toLowerCase();
-          return haystack.includes(filter);
+          let found:boolean = true;
+          //console.log(filter);
+
+          for(let f in this.tableFilters) {
+            if(this.tableFilters[f].current) {
+              found = (data[f] == this.tableFilters[f].current) && found;
+            }
+          }
+          //if(found) console.log({found}, data.name.full, `"${filter}"`);
+
+          if(filter === '')
+            return found;
+          else
+            return found && haystack.includes(filter);
         };        
-        this.ds.sort = this.sort;
-        
+                
         console.log(this.ds);
       },
       err => {
         console.log('usersService.getUsers.ERR', err);
       }
     );
+  }
+
+  private getRandomInt(min, max) {
+    // The maximum is inclusive and the minimum is inclusive
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min )) + min;
   }
 }

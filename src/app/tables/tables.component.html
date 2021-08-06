@@ -4,16 +4,34 @@
     <div class="mat-elevation-z8" id="filtersBar">
         <mat-form-field floatLabel="never" style="width:24em;margin-right:8px;">
             <mat-icon matPrefix>search</mat-icon>
-            <mat-icon matSuffix (click)="clearFilter($event)" id="clearFilter" style="cursor: pointer;">clear</mat-icon>
-            <input matInput placeholder="Search" name="search"
+            <mat-icon matSuffix id="clearFilter" style="cursor: pointer;"
+                *ngIf="searchRef.value.length" (click)="clearFilter($event)">
+                clear
+            </mat-icon>
+            <input matInput placeholder="Search" name="search" #searchRef
                 matTooltip="Update Ticket"
                 (keyup)="af($event)">            
         </mat-form-field>
+        &nbsp;
+        <mat-form-field floatLabel="never" style="width:10em;">
+            <mat-select [value]="" (selectionChange)="onSelectionChange('status', $event)">
+                <mat-option [value]="" selected>--Status--</mat-option>
+                <mat-option *ngFor="let opt of tableFilters.status.values" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        &nbsp;
+        <mat-form-field floatLabel="never" style="width:10em;">
+            <mat-select [value]="'0'" (selectionChange)="onSelectionChange('gender', $event)">
+                <mat-option [value]="'0'" selected>--Gender--</mat-option>
+                <mat-option *ngFor="let opt of tableFilters.gender.values" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
+
     <table mat-table class="mat-elevation-z8" [dataSource]="ds" matSort (matSortChange)="onSort($event)">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef [mat-sort-header]>Name</th>
-            <td mat-cell *matCellDef="let item"> {{item.name.full}} </td>
+            <td mat-cell *matCellDef="let item"> {{item.name.full}} [{{item.gender}}]</td>
         </ng-container>
 
         <ng-container matColumnDef="username">
@@ -38,8 +56,20 @@
             <td mat-cell *matCellDef="let item"> {{item.dob.date | date}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+            <td mat-cell *matCellDef="let item"> {{item.status}} </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+        <tr>
+            <td colspan="5">[{{ds?.data.length}}]</td>
+        </tr>
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="5">No data matching the filter</td>
+        </tr>
+        
     </table>
     
 </section>
