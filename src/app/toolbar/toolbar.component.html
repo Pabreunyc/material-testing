@@ -90,3 +90,45 @@
     </mat-toolbar>
 </section>
 </form>
+
+<form [formGroup]="ticketFG">
+<section style="margin-top:1em;border:1px solid firebrick;" id="tool2">
+        <div>
+                <button type='submit' mat-stroked-button name="update"
+                    class='tb-update'
+                    matTooltip="Update Ticket"
+                    aria-label="Button to send current response">
+                    <mat-icon>email</mat-icon>
+                    Update
+                </button>
+                <button type='button' mat-stroked-button 
+                    matTooltip="Add Attachment"
+                    class="tb-attachment"
+                    aria-label="Add attachment to ticket response">
+                    <mat-icon style="transform: rotate(90deg);">attachment</mat-icon>
+                </button>
+                &nbsp;<span style="color:black">|</span>&nbsp;
+                <button type='submit' mat-stroked-button name="discard"
+                    matTooltip="Discard. Return to listing"
+                    aria-label="Discard response and return to listing">
+                    <mat-icon>delete</mat-icon>
+                    Discard
+                </button>
+        </div>
+
+        <div>
+            <mat-form-field floatLabel="'never'" style="width:8em;">
+                <mat-select formControlName="fc_tbNewStatus" [value]="'0'">
+                    <mat-option [value]="0" selected>--Status--</mat-option>
+                    <mat-option *ngFor="let stat of data1" [value]="stat.val">{{stat.label}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field floatLabel="'never'" style="width:8em">
+                <mat-select formControlName="fc_tbAssignee">
+                    <mat-option [value]="0">--Assign To--</mat-option>
+                    <mat-option *ngFor="let u of data2" [value]="u.val">{{u.label}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+</section>
+</form>

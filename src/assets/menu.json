@@ -28,5 +28,17 @@
       "perm":"Admin",
       "href":"toolbar",
       "active":1
+    },
+    {
+      "menu":"Forms",
+      "perm":"Admin",
+      "href":"forms",
+      "active":1
+    },
+    {
+      "menu":"Tables",
+      "perm":"Admin",
+      "href":"tables",
+      "active":1
     }
 ]

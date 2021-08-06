@@ -10,20 +10,18 @@ import { StepsComponent } from '../steps/steps.component';
 import { Tabs1Component } from '../tabsA/tabs1/tabs1.component';
 import { Tabs2Component } from '../tabsA/tabs2/tabs2.component';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { FormsComponent } from '../forms/forms.component';
+import { TablesComponent } from '../tables/tables.component';
 
 const routes: Routes = [
   { path:'', component:TabsAComponent },
-  { path:'main', component:MainComponent },  
+  { path:'forms', component:FormsComponent },
+  { path:'main', component:MainComponent },
   { path:'stepper', component:StepsComponent },
   { path:'toolbar', component:ToolbarComponent },
-  {
-    path: 'tab1',
-    component: Tabs1Component
-  },
-  {
-    path: 'tab2',
-    component: Tabs2Component
-  }, 
+  { path: 'tab1', component: Tabs1Component },
+  { path: 'tab2', component: Tabs2Component },
+  { path: 'tables', component: TablesComponent },
   { path:'**', component:PageNotFoundComponent },
 ];
 

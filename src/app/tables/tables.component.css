@@ -1,0 +1,15 @@
+section {
+    border:1px solid saddlebrown;
+    box-sizing: border-box;
+    padding-top:6px;
+}
+table {
+    margin:0 auto;
+    width:98%;
+}
+
+#filtersBar {
+    background: white;
+    margin:0 auto;
+    width:98%;
+}

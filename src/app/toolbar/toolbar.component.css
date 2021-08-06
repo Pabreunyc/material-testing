@@ -10,3 +10,12 @@ section {
 .b1 {
     background-color:violet !important;
 }
+
+#tool2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+#tool2 > div {
+    border:1px solid black;
+}

@@ -18,6 +18,8 @@ import { StepsComponent } from './steps/steps.component';
 import { TransfersSearchComponent } from './main/transfers-search/transfers-search.component';
 import { TransfersComponent } from './main/transfers/transfers.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { FormsComponent } from './forms/forms.component';
+import { TablesComponent } from './tables/tables.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     TransfersSearchComponent,
     TransfersComponent,
     ToolbarComponent,
+    FormsComponent,
+    TablesComponent,
   ],
   imports: [
     BrowserModule,

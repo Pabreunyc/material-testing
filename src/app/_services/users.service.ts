@@ -12,6 +12,7 @@ export class UsersService {
 private _url = "https://randomuser.me/api/?results=100&nat=us";
 private _instanceId: number;
 
+private randomUserInfo;
 private users = [];
 
   constructor(private http:HttpClient) {
@@ -21,17 +22,20 @@ private users = [];
   }
 
   getUsers(): Observable<any> {
-    console.log('>>', this._instanceId);
+    console.log('>>', this._instanceId, this.users.length);
     if(this.users.length === 0) {
       return this.http.get(this._url)
         .pipe(
           map(e => {
+            let ndx = 100;
             console.log('UsersService.getUsers', typeof e, e);
             let u = (e as any).results.map(el => {
+              el['id'] = ndx++;
               el.name['full'] = `${el.name.first} ${el.name.last}`;
               return el;
             });
             this.users = u;
+            this.randomUserInfo = (e as any).info;
             return u;
           })
         );

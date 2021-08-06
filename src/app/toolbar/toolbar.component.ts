@@ -12,6 +12,22 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 public ticketFG: FormGroup;
 public ticketSelects:any = {};
 public assignUserTo:any = {};
+public ticket:any = {
+  id:100,
+};
+public isAdmin:boolean = true;
+public data1:any = [
+  {val:100, label:'ABC'},
+  {val:200, label:'DEF'},
+  {val:300, label:'GHI'},
+  {val:400, label:'JKL'},
+];
+public data2:any = [
+  {val:150, label:'B.ABC'},
+  {val:250, label:'B.DEF'},
+  {val:350, label:'B.GHI'},
+  {val:450, label:'B.JKL'},
+];
 public tc:ThemePalette = null;
 
   constructor(private fb: FormBuilder) { }
