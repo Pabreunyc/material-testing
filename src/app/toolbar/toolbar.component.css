@@ -1,0 +1,21 @@
+section {
+    background-color:wheat;
+    margin:0 auto;
+    width:98%;
+}
+
+#response-toolbar2 > button {
+    margin-right: 4px;
+}
+.b1 {
+    background-color:violet !important;
+}
+
+#tool2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+#tool2 > div {
+    border:1px solid black;
+}

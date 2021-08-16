@@ -1,0 +1,44 @@
+[
+    {
+      "menu":"Home",
+      "perm":"",
+      "href":"",
+      "active":1
+    },
+    {
+      "menu":"Main",
+      "perm":"Admin",
+      "href":"main",
+      "active":1
+    },
+    {
+      "menu":"Stepper",
+      "perm":"Admin",
+      "href":"stepper",
+      "active":1
+    },
+    {
+      "menu":"Dropdown/Select",
+      "perm":"Admin",
+      "href":"select",
+      "active":1
+    },
+    {
+      "menu":"Menu Toolbar",
+      "perm":"Admin",
+      "href":"toolbar",
+      "active":1
+    },
+    {
+      "menu":"Forms",
+      "perm":"Admin",
+      "href":"forms",
+      "active":1
+    },
+    {
+      "menu":"Tables",
+      "perm":"Admin",
+      "href":"tables",
+      "active":1
+    }
+]

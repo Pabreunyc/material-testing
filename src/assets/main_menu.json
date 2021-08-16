@@ -1,0 +1,131 @@
+[
+    {
+      "menu":"Admin",
+      "perm":"Admin",
+      "active":0,
+      "items":[
+        {
+          "item":"Edit Users",
+          "link":"/admin/useredit"
+        },
+        {
+          "item":"Edit Roles",
+          "link":"/admin/roleedit"
+        },
+        {
+          "item":"System Logs",
+          "link":"/admin/systemlogs"
+        }
+      ]
+    },
+    {
+      "menu":"Dashboard",
+      "perm":"Dashboard",
+      "active":0,
+      "items":[
+        {
+          "item":"Main",
+          "link":"/dashboard"
+        },
+        {
+          "item":"Polar",
+          "link":"/dashboard/polar"
+        },
+        {
+          "item":"Active Projects",
+          "link":"/dashboard/active"
+        }
+      ]
+    },
+    {
+      "menu":"Capital Archive",
+      "perm":"Mapfile",
+      "active":0,
+      "items":[
+        {
+          "item":"Mapfile Log",
+          "link":"/case/mapfile-comp"
+        },
+        {
+          "item":"Blueprint Log",
+          "link":"/case/blueprint"
+        },
+        {
+          "item":"Photo Archive Log",
+          "link":"/case/photofile"
+        },
+        {
+          "item":"SARRS",
+          "link":"/case/sarrs"
+        }
+      ]
+    },
+    {
+      "menu":"Helpdesk",
+      "perm":"Helpdesk",
+      "active":0,
+      "items":[
+        {
+          "item":"Trouble Tickets",
+          "link":"/helpdesk"
+        },
+        {
+          "item":"Maintenance Logs",
+          "link":"/helpdesk/maintenance",
+          "perm": ["HelpdeskAdmin", "OpHelpdeskAdmin"]
+        },
+        {
+          "item":"Parking Permits",
+          "link":"/helpdesk/parking",
+          "perm": ["HelpdeskAdmin", "OpHelpdeskAdmin"]
+        }
+      ]
+    },  
+    {
+      "menu":"SPROUT",
+      "perm":"SPROUT",
+      "active":1,
+      "items":[
+        {
+          "item":"FMS Look-up",
+          "link":"/sprout/fmslookup"
+        },
+        {
+          "item":"CP / CS-70",
+          "link":"/sprout/cp-cs70"
+        }
+      ]
+    },
+    {
+      "menu":"S&A Application",
+      "perm":"SAInventory",
+      "active":0,
+      "items":[
+        {
+          "item":"Issue Equipment",
+          "link":"/sainventory/issue-equipment",
+          "perm": ["SAInventoryAdmin"]
+        },
+        {
+          "item":"Equipment Management",
+          "link":"/sainventory/inventory",
+          "perm": ["SAInventoryAdmin"]
+        }
+      ]
+    },
+    {
+      "menu":"Test-Data",
+      "perm":"TestData",
+      "active":0,
+      "items":[
+        {
+          "item":"Test 1",
+          "link":"/test"
+        },
+        {
+          "item":"Test 2",
+          "link":"test/detail"
+        }
+      ]
+    }
+  ]

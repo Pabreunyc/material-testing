@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class='dark' id='navbar'>
+    <button mat-icon-button ><mat-icon>menu</mat-icon> 
+    </button>
+
+    <a *ngFor="let m of mainMenu" 
+        [routerLink]="m.href" 
+        routerLinkActive
+        [routerLinkActiveOptions]="{exact:true}"
+        #rla="routerLinkActive"
+        [class.is-active]="rla.isActive"
+    >
+        <span>{{m.menu}} [{{rla.isActive}}]</span>
+    </a>
+</mat-toolbar>

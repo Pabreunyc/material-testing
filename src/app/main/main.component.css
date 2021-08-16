@@ -1,0 +1,29 @@
+.side-drawer {
+    background-color: azure;
+    height:500px;
+}
+
+#container {
+    background-color:#FFE5AC;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+table {
+    width: 100%;
+}
+mat-footer-row, mat-row {
+    min-height: auto;
+    padding: .3rem;
+}
+mat-footer-cell, mat-header-cell {
+    font-weight: bold;
+}
+mat-row:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+mat-row:hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075);
+}
